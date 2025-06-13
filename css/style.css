@@ -1,0 +1,230 @@
+/* ========================
+   BASE STYLES
+========================= */
+body {
+  margin: 0;
+  background: #0a0a0a;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+/* Cyberpunk-styled font */
+@font-face {
+  font-family: 'Cyberpunk';
+  src: url('../assets/fonts/cyberpunk.woff2') format('woff2');
+}
+
+/* Viewer container */
+#product-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* Keeps 3D scene behind UI */
+}
+
+/* ========================
+   CYBERPUNK UI - HUD & BUTTONS
+========================= */
+
+/* Heads-up display (HUD) text */
+.hud {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  color: #00ffff;
+}
+
+/* Cyber-style buttons */
+.cyber-button {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  padding: 12px 20px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto !important;
+}
+
+.cyber-button:hover {
+  background: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Neon-style text */
+.neon-pink {
+  color: #f5f4f8;
+  text-shadow: 0 0 5px #00ff9d;
+}
+
+/* Button positioning: group of interactive buttons */
+#voice-command {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 140px;
+}
+
+#enable-graffiti {
+  position: fixed;
+  bottom: 20px;
+  right: 170px;
+  width: 140px;
+}
+
+#disable-graffiti {
+  position: fixed;
+  bottom: 20px;
+  right: 320px;
+  width: 140px;
+}
+
+#clear-graffiti {
+  position: fixed;
+  bottom: 20px;
+  right: 470px;
+  width: 140px;
+}
+
+#ar-button {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 140px;
+}
+
+/* ========================
+   BACKGROUND GLOW EFFECT
+========================= */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 100, 255, 0.1) 0%,
+    rgba(0, 0, 0, 0.8) 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ========================
+   CHATBOT UI
+========================= */
+
+.chatbot-ui {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 280px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00ffff;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.chatbot-ui.collapsed {
+  transform: translateX(calc(100% - 40px)); /* Collapsed look */
+}
+
+.chatbot-header {
+  padding: 10px;
+  background: rgba(0, 255, 255, 0.2);
+  color: #00ffff;
+  font-family: 'Cyberpunk', sans-serif;
+  text-align: center;
+  border-bottom: 1px solid #00ffff;
+}
+
+.close-btn {
+  cursor: pointer;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.chatbot-messages {
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.message.ai {
+  color: #00ffff;
+  margin-bottom: 10px;
+}
+
+/* ============ FIXED CHATBOT INPUT (aligned input + send) ============ */
+.chatbot-input-row {
+  display: flex;
+  width: 100%;
+}
+
+.chatbot-input {
+  flex: 1;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00ffff;
+  border-right: none;
+  color: white;
+  outline: none;
+  font-family: 'Courier New', monospace;
+}
+
+.chatbot-send {
+  background: transparent;
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chatbot-send:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 5px #00ffff;
+}
+
+#save-graffiti {
+  position: fixed;
+  bottom: 20px;
+  right: 620px; /* 150px to the left of clear-graffiti */
+  width: 140px;
+}
+
+#toggle-rotation {
+  position: fixed;
+  bottom: 20px;
+  right: 770px; /* 150px to the left of save-graffiti */
+  width: 140px;
+}
+
+/* Top control panel */
+.top-controls {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  z-index: 2000;
+}
+
+.top-controls .cyber-button.small-button {
+  padding: 6px 12px;
+  font-size: 14px;
+  width: auto;
+}
+

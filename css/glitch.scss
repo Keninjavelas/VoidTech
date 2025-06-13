@@ -1,0 +1,77 @@
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+    transform: translate(0);
+  }
+  20% {
+    text-shadow: -2px 0 red, 2px 0 blue;
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+    transform: translate(2px, -1px);
+  }
+  60% {
+    text-shadow: -1px 0 red, 1px 0 blue;
+    transform: translate(-1px, 2px);
+  }
+  80% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+    transform: translate(1px, -2px);
+  }
+  100% {
+    text-shadow: 0 0 #0ff;
+    transform: translate(0);
+  }
+}
+
+.cyber-text {
+  animation: glitch 0.4s infinite;
+  font-family: 'Cyberpunk', sans-serif;
+  color: #0ff;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.cyber-text::before,
+.cyber-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #f0f;
+  clip: rect(0, 0, 0, 0);
+}
+
+.cyber-text::before {
+  animation: glitch-clip 0.7s infinite linear alternate-reverse;
+  color: #f0f;
+  left: 2px;
+}
+
+.cyber-text::after {
+  animation: glitch-clip 0.7s infinite linear alternate;
+  color: #0ff;
+  left: -2px;
+}
+
+@keyframes glitch-clip {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  10% {
+    clip: rect(10px, 9999px, 15px, 0);
+  }
+  20% {
+    clip: rect(5px, 9999px, 20px, 0);
+  }
+  30% {
+    clip: rect(15px, 9999px, 25px, 0);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+}
+
