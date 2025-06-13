@@ -1,6 +1,6 @@
 # VOIDTECH 🌌
 
-![VOIDTECH Screenshot](./image.png)
+![VOIDTECH Screenshot](./Image.png)
 
 VoidTech is a stylized, interactive 3D viewer powered by Three.js.  
 It features custom shaders, glitch FX, and a cyberpunk AI assistant UI built from scratch.
